@@ -56,3 +56,8 @@ variable "sampling_percentage" {
   type        = number
   default     = 100
 }
+
+variable "token_key_import" {
+  type    = string
+  default = ""
+}
