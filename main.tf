@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "rg" {
 }
 
 module "key-vault" {
-  source              = "git@github.com:hmcts/cnp-module-key-vault?ref=master"
+  source              = "git@github.com:hmcts/cnp-module-key-vault?ref=DTSPO-31965/remove-jenkins-ptl-access"
   product             = var.product
   env                 = var.env
   tenant_id           = var.tenant_id
@@ -18,6 +18,7 @@ module "key-vault" {
   product_group_name      = "DTS Family Private Law"
   common_tags             = var.common_tags
   create_managed_identity = true
+  grant_preview_jenkins_access = var.env == "aat" ? true : false
 }
 
 data "azurerm_user_assigned_identity" "jenkins" {
