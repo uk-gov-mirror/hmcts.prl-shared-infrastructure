@@ -15,9 +15,9 @@ module "key-vault" {
   resource_group_name = azurerm_resource_group.rg.name
 
   # dcd_platformengineering group object ID
-  product_group_name      = "DTS Family Private Law"
-  common_tags             = var.common_tags
-  create_managed_identity = true
+  product_group_name           = "DTS Family Private Law"
+  common_tags                  = var.common_tags
+  create_managed_identity      = true
   grant_preview_jenkins_access = var.env == "aat" ? true : false
 }
 
